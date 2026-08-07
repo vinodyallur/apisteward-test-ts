@@ -7,7 +7,6 @@ export async function checkout(amount: number) {
   return client.charges.create({
     amount,
     currency: "usd",
-    source: "tok_visa",
     metadata: { customerId: customer.id },
   });
 }
