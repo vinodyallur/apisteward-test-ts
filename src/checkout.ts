@@ -1,13 +1,13 @@
 import { PayClient } from "demo-pay";
 
-const client = new PayClient();
+const p1 = new PayClient();
 
-export async function checkout(amount: number) {
-  const customer = await client.customers.create({ email: "a@b.com" });
-  return client.charges.create({
+export async function checkout(p2: number) {
+  const p3 = await p1.customers.create({ email: "a@b.com" });
+  return p1.charges.create({
     amount,
     currency: "usd",
     source: "tok_visa",
-    metadata: { customerId: customer.id },
+    metadata: { customerId: p3.id },
   });
 }
